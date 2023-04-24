@@ -1,1 +1,49 @@
-//これから作ります
+body{
+ background-color:#535458;
+ color:white;
+ }
+
+div{
+    text-align: center;
+    font-size:200%;
+    background-color:lightyellow;
+    color:#535458;
+    margin:auto 10%;
+}
+
+h1{
+    text-align: center;
+ }
+
+ #textlist{
+    width:80%;
+    line-height: 1.5;
+    height: 7.5em;
+    font-size: 150%;
+    margin:auto 10% ;
+ }
+
+ label{
+    font-size: 125%;
+    margin:auto; 
+ }
+
+p{
+  text-align: center;
+}
+
+.btn{
+    width: 200px;
+    height: 50px;
+    font-size: 120%;
+    margin:5px 25px;
+}
+
+#splits{
+    font-size: 125%;
+}
+
+#groupN{
+    font-size: 150%;
+    height: 40px;
+}
