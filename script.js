@@ -12,12 +12,17 @@ function namelistClick(){
     const inputtext = document.getElementById("textlist").value;
     //配列に変換
     const inputarray = inputtext.split(getSplit());
+        //重複チェック
+    if (isDuplicated(inputarray)===true){
+        window.alert("同じ名前の人がいます")
+        return ;
+    }
     //出力先の指定
     const place=document.getElementById("resultperson");
     //F 関数呼び出し
     const outputtext = nameListDistplay(inputarray);
-    place.innerHTML="結果：<br>" + outputtext;
-    console.log(globalresult);
+    place.innerHTML= outputtext;
+
 }
 
 //
@@ -26,12 +31,16 @@ function appointOfPersonClick(){
     const inputtext = document.getElementById("textlist").value;
     //配列に変換
     const inputarray = inputtext.split(',');
+    //重複チェック
+    if (isDuplicated(inputarray)===true){
+        window.alert("同じ名前の人がいます")
+        return ;
+    }
     //出力先の指定
     const place=document.getElementById("resultperson");
     //F 関数呼び出し
     const outputtext = randPerson(inputarray);
-    place.innerText="結果：" + outputtext;
-    console.log(globalresult);
+    place.innerText= outputtext;
 }
 
 function appointOfPersonUniqueClick(){
@@ -39,12 +48,16 @@ function appointOfPersonUniqueClick(){
     const inputtext = document.getElementById("textlist").value;
     //配列に変換
     const inputarray = inputtext.split(',');
+    //重複チェック
+    if (isDuplicated(inputarray)===true){
+        window.alert("同じ名前の人がいます")
+        return ;
+    }
     //出力先の指定
     const place=document.getElementById("resultperson");
     //関数呼び出し
     const outputtext = randPersonUnique(inputarray);
-    place.innerText="結果：" + outputtext;
-    console.log(globalresult);
+    place.innerText= outputtext;
 }
 
 function groupCreateClick(){
@@ -52,17 +65,29 @@ function groupCreateClick(){
     const inputtext = document.getElementById("textlist").value;
     //配列に変換
     const inputarray = inputtext.split(',');
+    //重複チェック
+    if (isDuplicated(inputarray)===true){
+        window.alert("同じ名前の人がいます")
+        return ;
+    }
     //出力先の指定
     const place=document.getElementById("rGroup");
     //F 関数呼び出し
     const outputarray = groupCreate(inputarray);
     //表示文字列作成
-    place.innerHTML="結果：<br>" + outputarray;
+    place.innerHTML= outputarray;
 
 }
 
 //--------------------------------------------------------------------------------
 //内部処理用
+
+//入力配列の重複チェック(ネットから引用)
+function isDuplicated(array){
+    const result =new Set(array);
+    return result.size !== array.length;
+}
+
 
 //区切り文字取得
 function getSplit(){
@@ -96,6 +121,8 @@ function randArray(array){
     globalresult = result;
     return result
 }
+
+
 
 //----------------------------------------------------------------------
 //ボタンにかかわる関数
