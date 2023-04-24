@@ -5,12 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" type="text/css" href="style.css" />
   <script type="text/javascript" src="script.js"></script>
+  <title>ランダム抽選</title>
 </head>
 
 <body>
+  <h1>会議中に困る「誰かを指名する」「○人組を作る」を<br>サポートするページです</h1>
+  
   <p>
-    <input type="text" size=100 id="textlist" placeholder="参加者名を入力(例:佐々木,田中,斎藤,大谷,石川)">
+    <textarea id="textlist" placeholder="参加者名を入力(例:佐々木,田中,斎藤,大谷,石川)" wrap="soft"></textarea>
   <br>
     <label>区切り文字</label>
     <select id="splits">
@@ -18,20 +22,22 @@
       <option value=" ">半角スペース</option>
     </select>
   </p>
+
   <p>
-    <input type="button" value="指名順" id=namelist onclick="namelistClick()">
-    <input type="button" value="ランダム指名(全員)" id="randall" onclick="appointOfPersonClick()"> 
-    <input type="button" value="ランダム指名(重複無)" id="randrest" onclick="appointOfPersonUniqueClick()">
+    <input type="button" value="指名順" id=namelist class=btn onclick="namelistClick()">
+    <input type="button" value="ランダム指名(全員)" id="randall" class=btn onclick="appointOfPersonClick()"> 
+    <input type="button" value="ランダム指名(重複無)" id="randrest" class=btn onclick="appointOfPersonUniqueClick()">
   </p>
-  <p id="resultperson">結果：</p>
+  <div id="resultperson">指名結果が表示されます</div>
   <br>
+  
   <p>
     <input type="text" size=10 placeholder="人数" id="groupN">
-    <input type="button" value="グループ分け" onclick="groupCreateClick()">
+    <input type="button" value="グループ分け" class=btn onclick="groupCreateClick()">
   </p>
+  
   <p>
-    <p>グループ分け結果：</p>
-    <div id="rGroup"></div>
+    <div id="rGroup">グループ分け結果が表示されます</div>
   </p>
 
   </body>
