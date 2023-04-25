@@ -121,8 +121,9 @@ function getSplit(){
 //グループの人数取得
 function groupNum(){
     const gNum = parseInt(document.getElementById("groupN").value)
-    if (!gNum >0){
+    if (gNum >0 === false){
         window.alert("正の整数を入力してください");
+        return false;
     }
     return gNum;
 }
@@ -216,6 +217,9 @@ function groupCreate(array){
     const resultarray=[];
     //グループの人数
     const num = groupNum();
+    if (num===false){
+        return "グループ分け結果が表示されます";
+    }
     //グループの数
     const divide =Math.floor(randomarray.length / num);
     //配列をグループの数だけ分ける
