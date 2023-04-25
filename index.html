@@ -20,6 +20,7 @@
     <select id="splits">
       <option value=",">カンマ</option>
       <option value=" ">半角スペース</option>
+      <option value="br">改行</option>
     </select>
   </p>
 
@@ -27,13 +28,16 @@
     <input type="button" value="指名順" id=namelist class=btn onclick="namelistClick()">
     <input type="button" value="ランダム指名(全員)" id="randall" class=btn onclick="appointOfPersonClick()"> 
     <input type="button" value="ランダム指名(重複無)" id="randrest" class=btn onclick="appointOfPersonUniqueClick()">
+    <input type="button" value="結果を小さくする" id="sizesmall" class=btn onclick="sizeSmallClick()">
   </p>
   <div id="resultperson">指名結果が表示されます</div>
   <br>
   
   <p>
-    <input type="text" size=10 placeholder="人数" id="groupN">
+    <input type="text" size=3 id="groupN">
+    <label>人ごとに</label>
     <input type="button" value="グループ分け" class=btn onclick="groupCreateClick()">
+    <input type="button" value="結果を小さくする" id="sizesmall" class=btn onclick="sizeSmallClick2()">
   </p>
   
   <p>
