@@ -4,6 +4,7 @@
 //処理用変数
 let globalresult=[];
 let globalcounter=0;
+let globalsizecounter=0;
 
 //-------------------------------------------------------------------------------
 //ボタン処理用
@@ -11,8 +12,14 @@ function namelistClick(){
     //textboxの値を取得
     const inputtext = document.getElementById("textlist").value;
     //配列に変換
-    const inputarray = inputtext.split(getSplit());
+    let inputarray=[];
+    if (getSplit()==="br"){
+        inputarray = inputtext.split(/\n/);
+    } else {
+        inputarray = inputtext.split(getSplit());
+    }
         //重複チェック
+    console.log(inputarray)
     if (isDuplicated(inputarray)===true){
         window.alert("同じ名前の人がいます")
         return ;
@@ -30,7 +37,12 @@ function appointOfPersonClick(){
     //textboxの値を取得
     const inputtext = document.getElementById("textlist").value;
     //配列に変換
-    const inputarray = inputtext.split(',');
+    let inputarray=[];
+    if (getSplit()==="br"){
+        inputarray = inputtext.split(/\n/);
+    } else {
+        inputarray = inputtext.split(getSplit());
+    }
     //重複チェック
     if (isDuplicated(inputarray)===true){
         window.alert("同じ名前の人がいます")
@@ -47,7 +59,12 @@ function appointOfPersonUniqueClick(){
     //textboxの値を取得
     const inputtext = document.getElementById("textlist").value;
     //配列に変換
-    const inputarray = inputtext.split(',');
+    let inputarray=[];
+    if (getSplit()==="br"){
+        inputarray = inputtext.split(/\n/);
+    } else {
+        inputarray = inputtext.split(getSplit());
+    }
     //重複チェック
     if (isDuplicated(inputarray)===true){
         window.alert("同じ名前の人がいます")
@@ -64,7 +81,12 @@ function groupCreateClick(){
     //textboxの値を取得
     const inputtext = document.getElementById("textlist").value;
     //配列に変換
-    const inputarray = inputtext.split(',');
+    let inputarray=[];
+    if (getSplit()==="br"){
+        inputarray = inputtext.split(/\n/);
+    } else {
+        inputarray = inputtext.split(getSplit());
+    }
     //重複チェック
     if (isDuplicated(inputarray)===true){
         window.alert("同じ名前の人がいます")
@@ -92,6 +114,7 @@ function isDuplicated(array){
 //区切り文字取得
 function getSplit(){
     const splitM =document.getElementById("splits").value
+    console.log(splitM);
     return splitM;
 }
 
@@ -122,7 +145,25 @@ function randArray(array){
     return result
 }
 
+function sizeSmallClick(){
+    const element= document.getElementById("resultperson")
+    globalsizecounter ++;
+    let sizevalue = 200-25*globalsizecounter+"%"
+    element.style.fontSize=sizevalue
+    if (globalsizecounter===7){
+        globalsizecounter=-1;
+    }
+}
 
+function sizeSmallClick2(){
+    const element= document.getElementById("rGroup")
+    globalsizecounter ++;
+    let sizevalue = 200-25*globalsizecounter+"%"
+    element.style.fontSize=sizevalue
+    if (globalsizecounter===7){
+        globalsizecounter=-1;
+    }
+}
 
 //----------------------------------------------------------------------
 //ボタンにかかわる関数
@@ -135,7 +176,7 @@ function nameListDistplay(array){
     //2番目以降の表示
     for(let i=1 ;i<randomarray.length;i++){
         result =result+ `【${i+1}】: ${randomarray[i]} `;
-        if ((i+1)%5===0){
+        if ((i+1)%3===0){
             result = result + "<br>";
         }
     }
